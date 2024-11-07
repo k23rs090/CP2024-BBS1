@@ -54,10 +54,13 @@ $(function() {
 
         // データベースに投稿を追加
 
-        // この下の行を消して、投稿処理を記述
-        console.log('ボタンが押されました')
-        // この上の行を消して投稿処理を記述
-        // 行末に 「;」 を付けないこと
+       fetch('/api/posts', {               // '/api/posts'は送信先URLの例です
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    })
 
             .then(function() {
                 showMessage('投稿が完了しました！');

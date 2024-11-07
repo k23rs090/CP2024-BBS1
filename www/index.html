@@ -54,14 +54,16 @@ $(function() {
 
         // データベースに投稿を追加
 
-       fetch('/api/posts', {               // '/api/posts'は送信先URLの例です
+       fetch('/api/posts', {  
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(postData)
+        
     })
 
+            postsRef.push(postData)
             .then(function() {
                 showMessage('投稿が完了しました！');
                 // 投稿フォームを初期化
